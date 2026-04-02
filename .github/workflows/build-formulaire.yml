@@ -1,7 +1,6 @@
 name: Build formulaire PDF
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -28,3 +27,4 @@ jobs:
         with:
           name: formulaire-pdf
           path: formulaire.pdf
+          retention-days: 90
