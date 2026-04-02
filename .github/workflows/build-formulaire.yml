@@ -10,6 +10,9 @@ on:
       - "assets/**"
       - ".github/workflows/build-formulaire.yml"
 
+permissions:
+  contents: write
+
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
@@ -22,9 +25,13 @@ jobs:
         with:
           root_file: formulaire.tex
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+      - name: Prepare Pages content
+        run: |
+          mkdir -p public
+          cp formulaire.pdf public/formulaire.pdf
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: formulaire-pdf
-          path: formulaire.pdf
-          retention-days: 90
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
