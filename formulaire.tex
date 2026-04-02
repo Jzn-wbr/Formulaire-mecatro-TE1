@@ -23,9 +23,12 @@
 \sloppy
 
 % Environnement "section encadrée"
+\newcommand{\metboxback}{white}
+\newcommand{\metboxframe}{black}
+
 \newtcolorbox{metbox}[1]{%
-  colback=white,
-  colframe=black,
+  colback=\metboxback,
+  colframe=\metboxframe,
   boxrule=0.4pt,
   arc=0pt,                 % angles carrés
   left=2mm,right=2mm,top=1.2mm,bottom=1.2mm,
@@ -45,6 +48,9 @@
 \begin{center}
 {\Large \textbf{Circuits magnétiques}}
 \end{center}
+
+\renewcommand{\metboxback}{blue!4}
+\renewcommand{\metboxframe}{blue!65!black}
 
 \begin{multicols}{2}
 
@@ -69,7 +75,7 @@ $\vec H$ : champ magnétique [A/m] \\
 $\vec B$ : induction magnétique [T] \\
 $\Phi$ : flux magnétique [Wb] \\
 $\Psi$ : flux totalisé [Wb] \\
-$\theta$ : force magnétomotrice (f.m.m.) [A.tours] \\
+$\theta$ : potentiel magnétique [A] \\
 $R_m$ : réluctance magnétique [H$^{-1}$] \\
 $\Lambda$ : perméance [H] \\
 $L$ : inductance propre [H] \\
@@ -102,6 +108,46 @@ $f$ : fréquence [Hz] \\
 $\delta$ : profondeur de peau [m] \\
 $W$ : énergie magnétique [J] \\
 $F$ : force de Laplace [N]
+
+\medskip
+\textbf{Conversion électromécanique (chap. 4)}
+
+$W_{el}$ : énergie électrique [J] \\
+$W_{mec}$ : énergie mécanique [J] \\
+$W_{th}$ : énergie thermique (pertes) [J] \\
+$W_{mag}$ : énergie magnétique [J] \\
+$W'_{mag}$ : co-énergie magnétique [J] \\
+$F_x$ : force électromagnétique selon $x$ [N] \\
+$T$ : couple électromagnétique [N\,m] \\
+$F_{res}$ : force résistante [N] \\
+$T_{res}$ : couple résistant [N\,m] \\
+$m$ : masse mobile [kg] \\
+$J$ : moment d'inertie [kg\,m$^2$] \\
+$C_v$ : coefficient de frottement visqueux [N\,s/m] \\
+$G$ : conductance électrique [S] \\
+$u_j$ : tension du circuit $j$ [V] \\
+$i_j$ : courant du circuit $j$ [A] \\
+$R_j$ : résistance du circuit $j$ [$\Omega$]
+
+\end{metbox}
+
+%====================================================
+\begin{metbox}{Grandeurs (suite)}
+
+$\Psi_j$ : flux totalisé du circuit $j$ [Wb] \\
+$L_{jp}$ : inductance (propre/mutuelle) entre $j,p$ [H] \\
+$\Lambda_{jp}$ : perméance (propre/mutuelle) entre $j,p$ [H] \\
+$F_m$ : force généralisée selon $x_m$ [N] \\
+$x_m$ : coordonnée généralisée [m] ou [rad] \\
+$\theta_j=n_ji_j$ : potentiel magnétique du circuit $j$ [A] \\
+$\theta_a=H_cl_a$ : potentiel magnétique d'un aimant [A] \\
+$H_c$ : champ coercitif [A/m] \\
+$B_r$ : induction rémanente [T] \\
+$\mu_{ra}$ : perméabilité relative de l'aimant [-] \\
+$K_F$ : constante de force [N/A] \\
+$K_U$ : constante de tension induite [V\,s/m] \\
+$K$ : constante de conversion électromécanique \\
+$u_{im}$ : tension induite de mouvement [V]
 
 \end{metbox}
 
@@ -542,10 +588,12 @@ F=n B l i
 
 \end{multicols}
 
-\newpage
 \begin{center}
 {\Large \textbf{Matériaux}}
 \end{center}
+
+\renewcommand{\metboxback}{green!4}
+\renewcommand{\metboxframe}{green!45!black}
 
 \begin{multicols}{2}
 
@@ -653,6 +701,9 @@ B_a=-\mu_0\frac{S_e}{S_a}\frac{l_a}{l_e}H_a
 \begin{center}
 {\Large \textbf{Conversion électromécanique}}
 \end{center}
+
+\renewcommand{\metboxback}{orange!6}
+\renewcommand{\metboxframe}{orange!70!black}
 
 {\small
 \begin{multicols}{2}
