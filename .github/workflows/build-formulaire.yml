@@ -10,43 +10,21 @@ on:
       - "assets/**"
       - ".github/workflows/build-formulaire.yml"
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/checkout@v4
 
       - name: Build PDF
         uses: xu-cheng/latex-action@v3
         with:
           root_file: formulaire.tex
 
-      - name: Prepare Pages content
-        run: |
-          mkdir -p public
-          cp formulaire.pdf public/formulaire.pdf
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: formulaire-pdf
+          path: formulaire.pdf
+          retention-days: 90
